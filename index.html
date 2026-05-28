@@ -621,7 +621,7 @@ nav{padding:12px 16px}
 <div class="hero-buttons">
 <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Explore My Chaos</button>
 <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire This Pookie</button>
-<button class="btn-ghost" onclick="window.open('#','_blank')">Download Resume</button>
+<button class="btn-ghost" onclick="window.open('https://drive.google.com/file/d/1fligZbKkWYDl3tVmelkpTSGcv_iblCLx/view','_blank')">Download Resume</button>
 </div>
 <div class="hero-widgets">
 <div class="widget" style="animation-delay:0s"><i class="fas fa-brain"></i>Current Mood: overengineering simple things</div>
@@ -785,32 +785,287 @@ const skillCategories = [
   { title: "Cybersecurity", icon: "fa-shield-halved", color: "rose", skills: ["Pen Testing", "Network Forensics", "Threat Detection", "Incident Response", "OSINT"] },
   { title: "Specializations", icon: "fa-wand-magic-sparkles", color: "pink", skills: ["NLP", "Computer Vision", "Automation", "IoT", "Product Design"] }
 ];
+```js
 const projects = [
-  { title:"Situationship-OS", desc:"An operating system for situationships. Track, analyze, and overthink every interaction with data-driven emotional intelligence.", tech:["Python","Flask","SQLite","Chart.js"], cat:"chaos", icon:"fa-heart-crack", status:"emotionally engineered" },
-  { title:"PookieJournal", desc:"Your emotionally unstable digital diary with AI mood analysis, sentiment tracking, and existential crisis detection.", tech:["React","TensorFlow","Firebase","NLP"], cat:"chaos", icon:"fa-book", status:"built during existential crisis" },
-  { title:"Midnight_Workspace", desc:"A dreamy workspace built for 2AM coding sessions with ambient soundscapes and focus-enhancing UI.", tech:["JavaScript","Three.js","WebRTC","CSS"], cat:"productivity", icon:"fa-moon", status:"sleep-deprived innovation" },
-  { title:"Delulu-Bank", desc:"Financial tracker powered by delusional optimism. See your finances through rose-tinted algorithms.", tech:["Python","Django","Chart.js","ML"], cat:"chaos", icon:"fa-piggy-bank", status:"certified delulu development" },
-  { title:"Emotionally-Damaged-Compiler", desc:"A compiler that judges your code and gives emotional feedback. It's disappointed in your variable names.", tech:["C++","Python","NLP","Flask"], cat:"experimental", icon:"fa-bug", status:"probably sentient" },
-  { title:"HIRINGSYNC-AI", desc:"AI-powered hiring synchronization tool that matches candidates to roles with terrifying accuracy.", tech:["Python","FastAPI","OpenAI","React"], cat:"ai", icon:"fa-users-gear", status:"unexpectedly functional" },
-  { title:"PookieCalc", desc:"Calculator that adds emotional commentary to your math. It judges your life choices based on your calculations.", tech:["JavaScript","CSS","HTML","API"], cat:"chaos", icon:"fa-calculator", status:"side quest energy" },
-  { title:"StudyFlix", desc:"Netflix-style study platform with AI-curated content recommendations and binge-learning mode.", tech:["Python","Django","TensorFlow","PostgreSQL"], cat:"productivity", icon:"fa-graduation-cap", status:"financially motivated coding" },
-  { title:"TruthLens", desc:"AI fact-checking system for detecting misinformation in real-time across multiple sources.", tech:["Python","NLP","Hugging Face","Streamlit"], cat:"ai", icon:"fa-eye", status:"unexpectedly functional" },
-  { title:"Finora", desc:"Smart finance management with predictive analytics that actually understands your spending patterns.", tech:["Python","Flask","ML","Plotly"], cat:"productivity", icon:"fa-chart-pie", status:"main character deployment" },
-  { title:"MyTaskMate", desc:"AI task manager that understands your procrastination patterns and guilt-trips you into productivity.", tech:["Python","Django","ML","SQLite"], cat:"productivity", icon:"fa-list-check", status:"emotionally engineered" },
-  { title:"SmartCoverLetter", desc:"AI-generated personalized cover letters that sound like you but better. Much better.", tech:["Python","OpenAI","Flask","NLP"], cat:"ai", icon:"fa-file-lines", status:"financially motivated coding" },
-  { title:"My-AI-Resume-Analyzer", desc:"AI resume analyzer with ATS scoring, keyword optimization, and brutal honesty about your career.", tech:["Python","NLP","Streamlit","Scikit-learn"], cat:"ai", icon:"fa-file-magnifying-glass", status:"unexpectedly functional" },
-  { title:"Image Caption Generator", desc:"Deep learning image captioning system that describes your images with unsettling precision.", tech:["Python","TensorFlow","CNN","LSTM"], cat:"ai", icon:"fa-image", status:"probably sentient" },
-  { title:"Arideep Chatbot", desc:"Conversational AI chatbot with actual personality. It has opinions and isn't afraid to share them.", tech:["Python","NLP","Flask","REST API"], cat:"ai", icon:"fa-robot", status:"probably sentient" },
-  { title:"Arideep Weather App", desc:"Beautiful weather app with predictive outfit suggestions based on atmospheric conditions and vibes.", tech:["JavaScript","API","CSS","Geolocation"], cat:"automation", icon:"fa-cloud-sun", status:"side quest energy" },
-  { title:"PDFSense", desc:"AI-powered PDF analysis and summarization that reads documents so you don't have to.", tech:["Python","NLP","PyPDF2","Streamlit"], cat:"ai", icon:"fa-file-pdf", status:"unexpectedly functional" },
-  { title:"AI-Powered Network Forensics", desc:"Network forensics platform with AI-driven threat detection and automated incident analysis.", tech:["Python","Scikit-learn","Wireshark","ML"], cat:"cyber", icon:"fa-network-wired", status:"main character deployment" },
-  { title:"IncidentAutopsySystem", desc:"Automated incident response and forensics platform that performs digital autopsies on security breaches.", tech:["Python","Django","ML","Docker"], cat:"cyber", icon:"fa-magnifying-glass", status:"sleep-deprived innovation" },
-  { title:"CyberWatch", desc:"Real-time cybersecurity monitoring dashboard with AI-powered anomaly detection and alerting.", tech:["Python","Flask","ML","D3.js"], cat:"cyber", icon:"fa-tower-broadcast", status:"main character deployment" },
-  { title:"NeuroCV Resume Analyzer", desc:"Offline CV analyzer using computer vision to extract and evaluate resume content without cloud dependency.", tech:["Python","OpenCV","OCR","NLP"], cat:"ai", icon:"fa-eye-low-vision", status:"built during existential crisis" },
-  { title:"Blood Bank Management", desc:"Blood bank management system with predictive demand forecasting to save lives before they're at risk.", tech:["Python","Django","ML","PostgreSQL"], cat:"automation", icon:"fa-droplet", status:"emotionally engineered" },
-  { title:"FocusFlow", desc:"Pomodoro app with AI focus optimization that learns when you're actually working vs. just staring.", tech:["JavaScript","TensorFlow.js","CSS","PWA"], cat:"productivity", icon:"fa-bullseye", status:"side quest energy" },
-  { title:"Custom CNC Engraving", desc:"Software-controlled CNC engraving system with custom G-code generation and precision path planning.", tech:["C++","Arduino","Python","Serial Comm"], cat:"experimental", icon:"fa-gear", status:"certified delulu development" }
+
+{
+  title:"Situationship-OS",
+  desc:"An operating system for situationships. Track, analyze, and overthink every interaction with data-driven emotional intelligence.",
+  tech:["Python","Flask","SQLite","Chart.js"],
+  cat:"chaos",
+  icon:"fa-heart-crack",
+  status:"emotionally engineered",
+  github:"https://github.com/ArideepCodes/Situationship-OS",
+  live:"https://arideepcodes.github.io/Situationship-OS"
+},
+
+{
+  title:"PookieJournal",
+  desc:"Your emotionally unstable digital diary with AI mood analysis, sentiment tracking, and existential crisis detection.",
+  tech:["React","TensorFlow","Firebase","NLP"],
+  cat:"chaos",
+  icon:"fa-book",
+  status:"built during existential crisis",
+  github:"https://github.com/ArideepCodes/PookieJournal",
+  live:"https://arideepcodes.github.io/PookieJournal"
+},
+
+{
+  title:"Midnight_Workspace",
+  desc:"A dreamy workspace built for 2AM coding sessions with ambient soundscapes and focus-enhancing UI.",
+  tech:["JavaScript","Three.js","WebRTC","CSS"],
+  cat:"productivity",
+  icon:"fa-moon",
+  status:"sleep-deprived innovation",
+  github:"https://github.com/ArideepCodes/Midnight_Workspace",
+  live:"https://arideepcodes.github.io/Midnight_Workspace"
+},
+
+{
+  title:"Delulu-Bank",
+  desc:"Financial tracker powered by delusional optimism.",
+  tech:["Python","Django","Chart.js","ML"],
+  cat:"chaos",
+  icon:"fa-piggy-bank",
+  status:"certified delulu development",
+  github:"https://github.com/ArideepCodes/Delulu-Bank",
+  live:"https://arideepcodes.github.io/Delulu-Bank"
+},
+
+{
+  title:"Emotionally-Damaged-Compiler",
+  desc:"A compiler that judges your code and gives emotional feedback.",
+  tech:["C++","Python","NLP","Flask"],
+  cat:"experimental",
+  icon:"fa-bug",
+  status:"probably sentient",
+  github:"https://github.com/ArideepCodes/Emotionally-Damaged-Compiler",
+  live:"https://arideepcodes.github.io/Emotionally-Damaged-Compiler"
+},
+
+{
+  title:"HIRINGSYNC-AI",
+  desc:"AI-powered hiring synchronization tool.",
+  tech:["Python","FastAPI","OpenAI","React"],
+  cat:"ai",
+  icon:"fa-users-gear",
+  status:"unexpectedly functional",
+  github:"https://github.com/ArideepCodes/HIRINGSYNC-AI",
+  live:"https://arideepcodes.github.io/HIRINGSYNC-AI/"
+},
+
+{
+  title:"PookieCalc",
+  desc:"Calculator that adds emotional commentary to your math.",
+  tech:["JavaScript","CSS","HTML","API"],
+  cat:"chaos",
+  icon:"fa-calculator",
+  status:"side quest energy",
+  github:"https://github.com/ArideepCodes/PookieCalc",
+  live:"https://arideepcodes.github.io/PookieCalc/"
+},
+
+{
+  title:"StudyFlix",
+  desc:"Netflix-style study platform with AI-curated content recommendations.",
+  tech:["Python","Django","TensorFlow","PostgreSQL"],
+  cat:"productivity",
+  icon:"fa-graduation-cap",
+  status:"financially motivated coding",
+  github:"https://github.com/ArideepCodes/StudyFlix",
+  live:"https://arideepcodes.github.io/StudyFlix"
+},
+
+{
+  title:"TruthLens",
+  desc:"AI fact-checking system for detecting misinformation in real-time.",
+  tech:["Python","NLP","Hugging Face","Streamlit"],
+  cat:"ai",
+  icon:"fa-eye",
+  status:"unexpectedly functional",
+  github:"https://github.com/ArideepCodes/TruthLens",
+  live:"https://arideepcodes.github.io/TruthLens/"
+},
+
+{
+  title:"Finora",
+  desc:"Smart finance management with predictive analytics.",
+  tech:["Python","Flask","ML","Plotly"],
+  cat:"productivity",
+  icon:"fa-chart-pie",
+  status:"main character deployment",
+  github:"https://github.com/ArideepCodes/Finora",
+  live:"https://arideepcodes.github.io/Finora/"
+},
+
+{
+  title:"MyTaskMate",
+  desc:"AI task manager that understands your procrastination patterns.",
+  tech:["Python","Django","ML","SQLite"],
+  cat:"productivity",
+  icon:"fa-list-check",
+  status:"emotionally engineered",
+  github:"https://github.com/ArideepCodes/MyTaskMate",
+  live:"#"
+},
+
+{
+  title:"SmartCoverLetter",
+  desc:"AI-generated personalized cover letters.",
+  tech:["Python","OpenAI","Flask","NLP"],
+  cat:"ai",
+  icon:"fa-file-lines",
+  status:"financially motivated coding",
+  github:"https://github.com/ArideepCodes/SmartCoverLetter",
+  live:"#"
+},
+
+{
+  title:"My-AI-Resume-Analyzer",
+  desc:"AI resume analyzer with ATS scoring.",
+  tech:["Python","NLP","Streamlit","Scikit-learn"],
+  cat:"ai",
+  icon:"fa-file-magnifying-glass",
+  status:"unexpectedly functional",
+  github:"https://github.com/ArideepCodes/My-AI-Resume-Analyzer",
+  live:"#"
+},
+
+{
+  title:"Image Caption Generator",
+  desc:"Deep learning image captioning system.",
+  tech:["Python","TensorFlow","CNN","LSTM"],
+  cat:"ai",
+  icon:"fa-image",
+  status:"probably sentient",
+  github:"https://github.com/ArideepCodes/image-caption-generator",
+  live:"#"
+},
+
+{
+  title:"Arideep Chatbot",
+  desc:"Conversational AI chatbot with actual personality.",
+  tech:["Python","NLP","Flask","REST API"],
+  cat:"ai",
+  icon:"fa-robot",
+  status:"probably sentient",
+  github:"https://github.com/ArideepCodes/arideep-chatbot",
+  live:"https://arideep-chatbot.streamlit.app"
+},
+
+{
+  title:"Arideep Weather App",
+  desc:"Beautiful weather app with predictive outfit suggestions.",
+  tech:["JavaScript","API","CSS","Geolocation"],
+  cat:"automation",
+  icon:"fa-cloud-sun",
+  status:"side quest energy",
+  github:"https://github.com/ArideepCodes/arideep-weather-app",
+  live:"https://arideep-weather-app.streamlit.app"
+},
+
+{
+  title:"PDFSense",
+  desc:"AI-powered PDF analysis and summarization.",
+  tech:["Python","NLP","PyPDF2","Streamlit"],
+  cat:"ai",
+  icon:"fa-file-pdf",
+  status:"unexpectedly functional",
+  github:"https://github.com/ArideepCodes/PDFSense",
+  live:"https://pdfsense-arideep.streamlit.app"
+},
+
+{
+  title:"AI-Powered Network Forensics",
+  desc:"Network forensics platform with AI-driven threat detection.",
+  tech:["Python","Scikit-learn","Wireshark","ML"],
+  cat:"cyber",
+  icon:"fa-network-wired",
+  status:"main character deployment",
+  github:"https://github.com/ArideepCodes/AI-Powered-Network-Forensics",
+  live:"https://ai-powered-network-forensics.streamlit.app/"
+},
+
+{
+  title:"IncidentAutopsySystem",
+  desc:"Automated incident response and forensics platform.",
+  tech:["Python","Django","ML","Docker"],
+  cat:"cyber",
+  icon:"fa-magnifying-glass",
+  status:"sleep-deprived innovation",
+  github:"https://github.com/ArideepCodes/IncidentAutopsySystem",
+  live:"#"
+},
+
+{
+  title:"CyberWatch",
+  desc:"Real-time cybersecurity monitoring dashboard.",
+  tech:["Python","Flask","ML","D3.js"],
+  cat:"cyber",
+  icon:"fa-tower-broadcast",
+  status:"main character deployment",
+  github:"https://github.com/ArideepCodes/CyberWatch",
+  live:"https://cyberwatch-vohd.onrender.com/"
+},
+
+{
+  title:"NeuroCV Resume Analyzer",
+  desc:"Offline CV analyzer using computer vision.",
+  tech:["Python","OpenCV","OCR","NLP"],
+  cat:"ai",
+  icon:"fa-eye-low-vision",
+  status:"built during existential crisis",
+  github:"https://github.com/ArideepCodes/neurocv-ai-offline-resume-analyzer",
+  live:"https://arideepcodes.github.io/neurocv-ai-offline-resume-analyzer/"
+},
+
+{
+  title:"Blood Bank Management",
+  desc:"Blood bank management system with predictive demand forecasting.",
+  tech:["Python","Django","ML","PostgreSQL"],
+  cat:"automation",
+  icon:"fa-droplet",
+  status:"emotionally engineered",
+  github:"https://github.com/ArideepCodes/blood-bank-management-system",
+  live:"#"
+},
+
+{
+  title:"FocusFlow",
+  desc:"Pomodoro app with AI focus optimization.",
+  tech:["JavaScript","TensorFlow.js","CSS","PWA"],
+  cat:"productivity",
+  icon:"fa-bullseye",
+  status:"side quest energy",
+  github:"https://github.com/ArideepCodes/FocusFlow",
+  live:"https://arideepcodes.github.io/FocusFlow/"
+},
+
+{
+  title:"Custom CNC Engraving",
+  desc:"Hardware-integrated CNC engraving system with precision control.",
+  tech:["C++","Arduino","Python","Serial Comm"],
+  cat:"experimental",
+  icon:"fa-gear",
+  status:"certified delulu development",
+  github:"#",
+  live:"#"
+},
+
+{
+  title:"And Many More...",
+  desc:"More chaotic experiments, AI systems, pookie-core inventions, automation tools, and sleep-deprived side quests are constantly under development.",
+  tech:["Creativity","Caffeine","Chaos","Late-Night Energy"],
+  cat:"experimental",
+  icon:"fa-plus",
+  status:"more projects spawning soon",
+  github:"https://github.com/ArideepCodes",
+  live:"https://github.com/ArideepCodes"
+}
+
 ];
+```
+
 const experiences = [
   { title:"Freelance AI & Automation Developer", date:"2023 — Present", company:"Self-Employed / Client Projects", desc:"Building custom AI solutions, automation pipelines, and intelligent systems for clients worldwide. Delivering production-grade ML models, chatbots, data analysis tools, and end-to-end automated workflows that actually work at 3 AM.", tags:["Python","TensorFlow","Automation","API Design","ML Ops"] },
   { title:"Ethical Hacking Intern", date:"2023", company:"Cybersecurity Organization", desc:"Conducted vulnerability assessments, penetration testing, and security audits on web applications and networks. Learned to think like an attacker to build better defenses. Wrote detailed threat reports that made people nervous.", tags:["Pen Testing","Nmap","Burp Suite","Network Security","OWASP"] },
@@ -904,8 +1159,13 @@ function renderProjects(filter='all'){
       <div class="project-status">${p.status}</div>
       <div class="project-tech">${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
       <div class="project-links">
-        <a href="#" class="project-link"><i class="fab fa-github"></i>Code</a>
-        <a href="#" class="project-link"><i class="fas fa-arrow-up-right-from-square"></i>Live</a>
+        <a href="${p.github}" target="_blank" class="project-link">
+<i class="fab fa-github"></i>GitHub
+</a>
+
+<a href="${p.live}" target="_blank" class="project-link">
+<i class="fas fa-arrow-up-right-from-square"></i>Live
+</a>
       </div>
     `;
     card.addEventListener('mousemove',e=>{
