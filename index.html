@@ -446,7 +446,7 @@ z-index:100;opacity:0;visibility:hidden;transition:all .35s cubic-bezier(.23,1,.
 </head>
 <body>
 
-<!-- PRELOADER — UNTOUCHED -->
+<!-- PRELOADER — UNTOUCHABLE -->
 <div id="preloader">
 <div class="loader-text">Initializing Chaos...</div>
 <div class="loader-bar"><div class="loader-fill"></div></div>
@@ -920,7 +920,9 @@ const achieveGrid=document.getElementById('achieveGrid');
 achievementsData.forEach((a,i)=>{achieveGrid.innerHTML+=`<div class="achieve-card reveal ${i>0?'reveal-delay-'+Math.min(i%5,4):''}"><div class="ac-icon"><i class="${a.icon}"></i></div><div class="ac-text">${a.text}</div></div>`});
 
 // ===== PRELOADER (UNCHANGED LOGIC) =====
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),2000)});
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 2000);
+});
 
 // ===== CUSTOM CURSOR =====
 const outer=document.getElementById('cursorOuter'),inner=document.getElementById('cursorInner');
