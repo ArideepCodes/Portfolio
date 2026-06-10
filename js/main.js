@@ -1,8 +1,64 @@
-window.addEventListener("load", () => {
+// ===== PRELOADER — CINEMATIC BOOT SEQUENCE =====
+(function() {
+  // Binary rain columns
+  const binContainer = document.getElementById('plBinary');
+  const cols = Math.floor(window.innerWidth / 22);
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < Math.min(cols, 50); i++) {
+    const col = document.createElement('div');
+    col.className = 'pl-bin-col';
+    col.style.left = (i * (100 / Math.min(cols, 50))) + '%';
+    col.style.animationDuration = (Math.random() * 10 + 8) + 's';
+    col.style.animationDelay = (Math.random() * 8) + 's';
+    col.style.opacity = (Math.random() * 0.025 + 0.008).toString();
+    let str = '';
+    for (let j = 0; j < 40; j++) str += (Math.random() > 0.5 ? '1' : '0') + '\n';
+    col.textContent = str;
+    frag.appendChild(col);
+  }
+  binContainer.appendChild(frag);
+
+  // Boot log lines
+  const lines = [
+    {html: '<span class="tc-p">arideep@chaos-kernel</span><span class="tc-dim">:</span><span class="tc-info">~</span><span class="tc-dim">$ </span><span class="tc-c">sudo ./boot_identity.sh</span>', delay: 300},
+    {html: '<span class="tc-dim">[  0.001]</span> <span class="tc-c">Loading personality matrix...</span>', delay: 600},
+    {html: '<span class="tc-dim">[  0.084]</span> <span class="tc-c">emotional_stability.dll</span> <span class="tc-fail">NOT FOUND</span>', delay: 870},
+    {html: '<span class="tc-dim">[  0.085]</span> <span class="tc-warn">WARN: Proceeding without emotional stability</span>', delay: 1070},
+    {html: '<span class="tc-dim">[  0.200]</span> <span class="tc-c">caffeine_driver.ko</span> <span class="tc-ok">loaded ✓</span>', delay: 1270},
+    {html: '<span class="tc-dim">[  0.312]</span> <span class="tc-c">ai_systems_daemon</span> <span class="tc-ok">started ✓</span>', delay: 1470},
+    {html: '<span class="tc-dim">[  0.490]</span> <span class="tc-c">chaos_engine v3.7</span> <span class="tc-ok">running ✓</span>', delay: 1640},
+    {html: '<span class="tc-dim">[  0.711]</span> <span class="tc-pk">pookie_core_init: 91% chaos detected — nominal</span>', delay: 1820},
+    {html: '<span class="tc-dim">[  1.000]</span> <span class="tc-ok">✓ Identity kernel ready — Welcome, Arideep.</span>', delay: 2020},
+  ];
+
+  const terminal = document.getElementById('plTerminal');
+  const fill = document.getElementById('plFill');
+  const pct = document.getElementById('plPct');
+  const status = document.getElementById('plStatus');
+  const statusLabels = ['Initializing','Loading modules','Mounting drives','Starting daemons','Finalizing chaos','Ready'];
+
+  lines.forEach((line, i) => {
     setTimeout(() => {
-        document.getElementById("preloader").classList.add("hidden");
-    }, 5000);
-});
+      const div = document.createElement('div');
+      div.className = 'pl-term-line';
+      div.innerHTML = line.html;
+      terminal.appendChild(div);
+      requestAnimationFrame(() => div.classList.add('show'));
+      terminal.scrollTop = terminal.scrollHeight;
+      const progress = Math.round(((i + 1) / lines.length) * 100);
+      fill.style.width = progress + '%';
+      pct.textContent = progress + '%';
+      status.textContent = statusLabels[Math.min(Math.floor(i / 1.5), statusLabels.length - 1)];
+    }, line.delay);
+  });
+
+  // Cinematic exit — wait for load + slight extra delay
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hidden');
+    }, 2600);
+  });
+})();
 
 // ===== DATA =====
 const skillsData=[
