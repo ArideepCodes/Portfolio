@@ -30,18 +30,35 @@
 <body>
 
 <!-- ===== PRELOADER — CINEMATIC CHAOS BOOT ===== -->
-<!-- PRELOADER -->
-
 <div id="preloader">
-    <div class="preloader">
-        <div class="crack"></div>
-        <div class="crack crack2"></div>
-        <div class="crack crack3"></div>
-        <div class="crack crack4"></div>
-        <div class="crack crack5"></div>
+  <!-- binary rain -->
+  <div class="pl-binary" id="plBinary"></div>
+  <!-- frame corners -->
+  <div class="pl-corner tl"></div>
+  <div class="pl-corner tr"></div>
+  <div class="pl-corner bl"></div>
+  <div class="pl-corner br"></div>
+  <!-- center content -->
+  <div class="pl-center">
+    <div class="pl-eyebrow">System Boot &nbsp;·&nbsp; Identity Kernel v3.7</div>
+    <div class="pl-name-block" data-text="Arideep Kanshabanik">Arideep Kanshabanik</div>
+    <div class="pl-subtitle">AI Engineer <span>·</span> Chaos Architect <span>·</span> Relentless Problem Solver</div>
+    <div class="pl-terminal" id="plTerminal">
+      <div class="pl-term-bar">
+        <span></span><span></span><span></span>
+        <span class="pl-term-title">chaos_kernel — boot_sequence.sh</span>
+      </div>
+      <!-- lines injected by JS -->
     </div>
+    <div class="pl-progress-wrap">
+      <div class="pl-prog-meta">
+        <span id="plStatus">Initializing</span>
+        <span class="pl-prog-pct" id="plPct">0%</span>
+      </div>
+      <div class="pl-bar"><div class="pl-fill" id="plFill"></div></div>
+    </div>
+  </div>
 </div>
-
 
 <!-- CURSOR -->
 <div class="cursor-outer" id="cursorOuter"></div>
@@ -323,7 +340,14 @@
 <div class="section-label">Get In Touch</div>
 <h2 class="section-title">Let's build something <span class="gradient">emotionally unstable</span> together.</h2>
 <p class="contact-text">Tell me about your startup idea, AI dream, cybersecurity chaos, or emotionally unstable side project. I'm always down to collaborate, consult, or just vibe about technology at 2AM.</p>
-<a href="mailto:arideepkanshabanik@gmail.com" class="contact-email"><i class="fa-solid fa-envelope"></i> arideepkanshabanik@gmail.com</a>
+<a href="mailto:arideepkanshabanik@gmail.com" class="contact-email">
+    <i class="fa-solid fa-envelope"></i> arideepkanshabanik@gmail.com
+</a>
+
+<a href="mailto:contact@arideep.xyz" class="contact-email">
+    <i class="fa-solid fa-envelope"></i> contact@arideep.xyz
+</a>
+
 <div class="contact-socials">
 <a href="https://github.com/ArideepCodes" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
 <a href="https://www.linkedin.com/in/arideep-kanshabanik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
